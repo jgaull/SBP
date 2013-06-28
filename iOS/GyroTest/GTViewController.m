@@ -17,13 +17,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *connectingIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *signalStrengthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *magnetSpeedLabel;
 
 @property (strong, nonatomic) NSDate *lastGyroUpdate;
+@property (strong, nonatomic) NSDate *lastMagnetPass;
 @property (nonatomic) float angularVelocity;
 @property (nonatomic) float seeduinoAngularVelocity;
 @property (nonatomic) float currentAngle;
-@property (nonatomic) int manualRevolutionsCount;
 
 @property (nonatomic) BOOL isRunning;
 
@@ -48,7 +47,6 @@
     self.angularVelocity = 0;
     self.seeduinoAngularVelocity = 0;
     self.currentAngle = 0;
-    self.manualRevolutionsCount = 0;
     self.lastGyroUpdate = [NSDate date];
 }
  
@@ -71,6 +69,7 @@
     
     if (timeSinceLastUpdate >= 0.1) {
         static int GyroByte = 0x0A;
+        static int MagnetByte = 0x0B;
         // parse data, all commands are in 3-byte
         for (int i = 0; i < length; i+=3)
         {
@@ -108,6 +107,19 @@
                 NSString *speedString = [formatter stringFromSpeed:metersPerSecond];
                 self.speedLabel.text = speedString;
             }
+            if (data[i] == MagnetByte) {
+                NSLog(@"Magnet");
+                
+                float revolutionDuration = ABS([self.lastMagnetPass timeIntervalSinceNow]);
+                float metersPerSecondMagnet = 2.09858 / revolutionDuration;
+                self.lastMagnetPass = [NSDate date];
+                
+                TTTLocationFormatter *formatter = [[TTTLocationFormatter alloc] init];
+                formatter.unitSystem = TTTImperialSystem;
+                formatter.numberFormatter.maximumSignificantDigits = 3;
+                NSString *speedString = [formatter stringFromSpeed:metersPerSecondMagnet];
+                self.speedLabel.text = speedString;
+            }
         }
 
     }
@@ -124,9 +136,6 @@
     formatter.numberFormatter.maximumSignificantDigits = 3;
     NSString *speedString = [formatter stringFromSpeed:metersPerSecondMagnet];
     self.magnetSpeedLabel.text = speedString;*/
-    
-    self.manualRevolutionsCount++;
-    self.magnetSpeedLabel.text = [NSString stringWithFormat:@"Revolutions: %d", self.manualRevolutionsCount];
 }
 
 #pragma Mark - creating the connection.
@@ -144,7 +153,6 @@
         {
             [[self.ble CM] cancelPeripheralConnection:[self.ble activePeripheral]];
             [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
-            self.manualRevolutionsCount = 0;
             self.angularVelocity = 0;
             return;
         }
