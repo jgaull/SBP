@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC03D59D177013DE0052319D /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = FC03D59B177013DE0052319D /* BLE.m */; };
 		FC04925817509B5A00C5A484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC04925717509B5A00C5A484 /* UIKit.framework */; };
 		FC04925A17509B5A00C5A484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC04925917509B5A00C5A484 /* Foundation.framework */; };
 		FC04925C17509B5A00C5A484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC04925B17509B5A00C5A484 /* CoreGraphics.framework */; };
@@ -26,11 +27,13 @@
 		FC04928F1750A88900C5A484 /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0492861750A88900C5A484 /* TTTTimeIntervalFormatter.m */; };
 		FC0492901750A88900C5A484 /* TTTUnitOfInformationFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0492881750A88900C5A484 /* TTTUnitOfInformationFormatter.m */; };
 		FC0492911750A88900C5A484 /* TTTURLRequestFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC04928A1750A88900C5A484 /* TTTURLRequestFormatter.m */; };
-		FCBDD5E0176849A0009E2BF7 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBDD5DE176849A0009E2BF7 /* BLE.m */; };
 		FCBDD5E217684E72009E2BF7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBDD5E117684E72009E2BF7 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC03D59A177013DE0052319D /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
+		FC03D59B177013DE0052319D /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
+		FC03D59C177013DE0052319D /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
 		FC04925417509B5A00C5A484 /* GyroTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyroTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC04925717509B5A00C5A484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FC04925917509B5A00C5A484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,9 +65,6 @@
 		FC0492881750A88900C5A484 /* TTTUnitOfInformationFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTUnitOfInformationFormatter.m; sourceTree = "<group>"; };
 		FC0492891750A88900C5A484 /* TTTURLRequestFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTURLRequestFormatter.h; sourceTree = "<group>"; };
 		FC04928A1750A88900C5A484 /* TTTURLRequestFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTURLRequestFormatter.m; sourceTree = "<group>"; };
-		FCBDD5DD176849A0009E2BF7 /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
-		FCBDD5DE176849A0009E2BF7 /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
-		FCBDD5DF176849A0009E2BF7 /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
 		FCBDD5E117684E72009E2BF7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -84,6 +84,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC03D599177013DE0052319D /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				FC03D59A177013DE0052319D /* BLE.h */,
+				FC03D59B177013DE0052319D /* BLE.m */,
+				FC03D59C177013DE0052319D /* BLEDefines.h */,
+			);
+			name = BLE;
+			path = ../../BLEFramework/BLE;
+			sourceTree = "<group>";
+		};
 		FC04924B17509B5A00C5A484 = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +117,7 @@
 		FC04925617509B5A00C5A484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FCBDD5DC176849A0009E2BF7 /* BLE */,
+				FC03D599177013DE0052319D /* BLE */,
 				FC04925717509B5A00C5A484 /* UIKit.framework */,
 				FC04925917509B5A00C5A484 /* Foundation.framework */,
 				FC04925B17509B5A00C5A484 /* CoreGraphics.framework */,
@@ -161,17 +172,6 @@
 				FC04928A1750A88900C5A484 /* TTTURLRequestFormatter.m */,
 			);
 			path = FormatterKit;
-			sourceTree = "<group>";
-		};
-		FCBDD5DC176849A0009E2BF7 /* BLE */ = {
-			isa = PBXGroup;
-			children = (
-				FCBDD5DD176849A0009E2BF7 /* BLE.h */,
-				FCBDD5DE176849A0009E2BF7 /* BLE.m */,
-				FCBDD5DF176849A0009E2BF7 /* BLEDefines.h */,
-			);
-			name = BLE;
-			path = ../BLEFramework/BLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +251,7 @@
 				FC04928F1750A88900C5A484 /* TTTTimeIntervalFormatter.m in Sources */,
 				FC0492901750A88900C5A484 /* TTTUnitOfInformationFormatter.m in Sources */,
 				FC0492911750A88900C5A484 /* TTTURLRequestFormatter.m in Sources */,
-				FCBDD5E0176849A0009E2BF7 /* BLE.m in Sources */,
+				FC03D59D177013DE0052319D /* BLE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

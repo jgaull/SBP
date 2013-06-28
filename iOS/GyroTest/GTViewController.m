@@ -82,7 +82,7 @@
                 self.lastGyroUpdate = [NSDate date];
                 
                 double gyroVoltage = 5000.0f;         //Gyro is running at 5V
-                double gyroZeroValue = (284.0f / 1023.0f) * gyroVoltage;   //Gyro is zeroed at 1.35V
+                double gyroZeroValue = (281.0f / 1023.0f) * gyroVoltage;   //Gyro is zeroed at 1.35V
                 double gyroSensitivity = 0.67f;  //Our example gyro is 6.7mV/deg/sec/sec
                 
                 //convert analog value to millivolts
@@ -94,14 +94,13 @@
                 gyroRate /= gyroSensitivity;
                 
                 if (gyroRate >= 1 || gyroRate <= -1) {
-                    self.angularVelocity += (gyroRate * timeSinceLastUpdate) / M_PI;
+                    self.angularVelocity += (gyroRate * timeSinceLastUpdate);
                 }
                 
-                self.currentAngle += self.angularVelocity * timeSinceLastUpdate;
-                NSLog(@"Rotations: %f", (self.currentAngle / 360));
-                //NSLog(@"%f  %f  %d", timeSinceLastUpdate, gyroRate, value);
+                self.currentAngle += self.angularVelocity * timeSinceLastUpdate / M_PI;
+                NSLog(@"%f  %f  %d  %f", timeSinceLastUpdate, gyroRate, value, self.currentAngle);
                 
-                float metersPerSecond = ABS((self.angularVelocity / 360) * 2.09858);
+                float metersPerSecond = ABS((self.angularVelocity / 360) * 2.09858) * timeSinceLastUpdate;
                 
                 TTTLocationFormatter *formatter = [[TTTLocationFormatter alloc] init];
                 formatter.numberFormatter.maximumSignificantDigits = 3;
