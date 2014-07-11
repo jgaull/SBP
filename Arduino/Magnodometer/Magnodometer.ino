@@ -34,6 +34,7 @@ void loop()
   ble_write(value);*/
   
   int magnetState = digitalRead(MAGNET_PIN);
+  double lastTime = micros();
   
   if (magnetState != lastMagnetState)
   {
@@ -42,14 +43,18 @@ void loop()
       ble_write(0x0B);
       ble_write(0x01);
       ble_write(0x00);
+      Serial.println("Magnet!");
     }
     
     lastMagnetState = magnetState;
     delay(2);
   }
   
+  
   // Allow BLE Shield to send/receive data
   ble_do_events();
+  
+  //Serial.println(micros() - lastTime);
   
   // If data is ready
   /*while(ble_available())

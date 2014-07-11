@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FD5425DE-247D-4B33-BBBB-E065AFE0E538</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GyroTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1A59A7A8-78E5-4780-A346-448BFBF5D365</key>
+		<string>https://github.com/RedBearLab/BLEFramework.git</string>
+		<key>EBFF554B-8872-4195-897C-769CE2430B46</key>
+		<string>https://github.com/jgaull/SBP.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/GyroTest.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1A59A7A8-78E5-4780-A346-448BFBF5D365</key>
+		<string>../../../../BLEFramework</string>
+		<key>EBFF554B-8872-4195-897C-769CE2430B46</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jgaull/SBP.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EBFF554B-8872-4195-897C-769CE2430B46</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1A59A7A8-78E5-4780-A346-448BFBF5D365</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BLEFramework</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EBFF554B-8872-4195-897C-769CE2430B46</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SBP</string>
+		</dict>
+	</array>
+</dict>
+</plist>
